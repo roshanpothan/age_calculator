@@ -9,15 +9,19 @@ app = Flask(__name__)
 def index():
     name = request.args.get("name").lower()   
     persons=[
+    
         {"name":"roshan","age":33}, 
         {"name":"simi","age":30}, 
         {"name":"mathew","age":72},
         {"name":"shiny","age":61} 
     ]
     for person in persons:
-        if person['name']==name:
+        if person['name']== name:
             return jsonify({'age':person['age']}) 
-    return jsonify({'Message':f'{name} not found'})  
+    return jsonify({'Message':f'{name} not found'})  |
+
+
+
 if __name__ == "__main__":
     app.run(debug = True)
 # on the terminal type: curl http://127.0.0.1:5000/
